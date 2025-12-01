@@ -1,4 +1,4 @@
-const { ref } = require("joi");
+const { ref, types, number } = require("joi");
 const mongoose = require("mongoose");
 const review = require("./review");
 const Schema = mongoose.Schema;
@@ -26,6 +26,17 @@ const listingSchema = new Schema({
       type:Schema.Types.ObjectId,
       ref:"User",
   },
+  // geometey:{
+  //   type: {
+  //     type: String, // Don't do `{ location: { type: String } }`
+  //     enum: ['Point'], // 'location.type' must be 'Point'
+  //     required: true
+  //   },
+  //   coordinates: {
+  //     type: [Number],
+  //     required: true
+  //   }
+  // }
 });
 
 listingSchema.post("findOneAndDelete", async(listing)=>{
